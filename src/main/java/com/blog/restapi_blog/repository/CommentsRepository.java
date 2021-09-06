@@ -8,5 +8,5 @@ import java.util.List;
 public interface CommentsRepository extends JpaRepository<Comments,Integer> {
 List<Comments> findAllByUserId(int userId);
     List<Comments> findAllByPostId(int postId);
-    Comments findByUserIdAndPostId(int userId,int postId);
+    List<Comments>findByUserIdAndPostId(int userId,int postId);
 }
