@@ -29,7 +29,7 @@ public class UserModel {
     @NotEmpty
     @Size(min = 4,max = 7,
             message = "username can not be empty and must be 4-7 character")
-    private  String Username;
+    private  String username;
     @Email(message = "Only email pattern is allowed")
     @NotEmpty(message = "email can not be empty")
     private String email;

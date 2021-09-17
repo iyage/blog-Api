@@ -7,5 +7,5 @@ import java.util.List;
 public interface Postservice {
     List<PostModel>findAllPost();
    PostModel findPostById(int id);
-   List<PostModel>findByPostByIDAndUserID(int userid,int postid);
+//   List<PostModel>findByPostByIDAndUserID(int userid,int postid);
 }

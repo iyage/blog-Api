@@ -14,7 +14,7 @@ public class TestFeatures {
             .firstName("yage")
             .lastName("Ofunrein")
             .email("yag.@gmail.com")
-            .Username("yage")
+            .username("yage")
             .password("1234")
             .build();
     public static UserModel user2 = UserModel.builder()
@@ -22,7 +22,7 @@ public class TestFeatures {
             .firstName("bunmi")
             .lastName("Ofunrein")
             .email("bunmi.@gmail.com")
-            .Username("bunmi")
+            .username("bunmi")
             .password("1234")
             .build();
 
@@ -32,7 +32,12 @@ public class TestFeatures {
         users.add(user);
     return user;
     }
-    public static PostModel saveNewPostr(PostModel post){
+    public static PostModel saveNewPostr(String content,UserModel user){
+        PostModel post = PostModel.builder()
+                .id(4)
+                .user(user)
+                .content(content)
+                        .build();
 posts.add(post);
         return post;
     }
@@ -68,11 +73,27 @@ posts.add(post);
 
     return  null;
     }
+    public  static List<Comments>commentsList = new ArrayList<>();
     public  static Comments comment1 = Comments.builder()
             .id(1)
             .content("i love this post")
             .user(user1)
             .post(post1)
             .build();
+
+    public static Comments saveNewComment(String content,PostModel postModel,UserModel userModel){
+       Comments newComment = Comments.builder()
+                .id(2)
+                .user(userModel)
+                .content(content)
+               .post(postModel)
+                .build();
+     commentsList.add(newComment);
+        return newComment;
+    }
+
+
+
+
 
 }

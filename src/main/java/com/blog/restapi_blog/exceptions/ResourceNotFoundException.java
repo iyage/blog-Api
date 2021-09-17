@@ -1,9 +1,8 @@
-package com.blog.restapi_blog;
+package com.blog.restapi_blog.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException{
-    private   String message;
 
     public ResourceNotFoundException(String message) {
-        this.message = message;
+        super(message);
     }
 }

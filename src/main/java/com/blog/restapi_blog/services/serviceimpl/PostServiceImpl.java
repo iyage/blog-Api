@@ -1,6 +1,6 @@
 package com.blog.restapi_blog.services.serviceimpl;
 
-import com.blog.restapi_blog.ResourceNotFoundException;
+import com.blog.restapi_blog.exceptions.ResourceNotFoundException;
 import com.blog.restapi_blog.model.PostModel;
 import com.blog.restapi_blog.repository.PostRepository;
 import com.blog.restapi_blog.services.Postservice;
@@ -23,14 +23,13 @@ public class PostServiceImpl implements Postservice {
     }
 
     @Override
-    public PostModel findPostById(int id) throws ResourceNotFoundException {
-   Optional<PostModel>optional = postRepository.findById(id);
-       return optional.get();
-    }
+    public PostModel findPostById(int id)  {
+return postRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Post with id:" +id +"  does not exit"));
 
-    @Override
-    public List<PostModel> findByPostByIDAndUserID (int userid, int postid) throws ResourceNotFoundException {
-        return postRepository.findPostModelsByIdAndAndUserId(userid,postid);
     }
-
+//
+//    @Override
+//    public List<PostModel> findByPostByIDAndUserID (int userid, int postid) throws ResourceNotFoundException {
+//  return postRepository.findPostModelsByIdAndAndUserId(userid,postid);
+//      }
 }
